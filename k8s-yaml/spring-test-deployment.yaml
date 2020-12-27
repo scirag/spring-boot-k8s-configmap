@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: spring-test
+  name: spring-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-test
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: spring-test
+    spec:
+      containers:
+      - image: safakcirag/spring-test
+        name: spring-test
+        volumeMounts:
+          - mountPath: /usr/app/config/
+            name: app-config-volume
+      volumes:
+        - name: app-config-volume
+          configMap:
+            name: app-config
+
+status: {}

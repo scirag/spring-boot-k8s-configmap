@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  application.properties: |+
+    rabbitMQ.url=rabbitmq-service:5672000000
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: app-config
